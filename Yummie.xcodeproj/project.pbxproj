@@ -21,6 +21,7 @@
 		B1DDC3902720757800E5AC8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC38F2720757800E5AC8E /* HomeViewController.swift */; };
 		B1DDC3932720B57F00E5AC8E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */; };
 		B1DDC3952720B77B00E5AC8E /* DishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC3942720B77B00E5AC8E /* DishCategory.swift */; };
+		B1F1EA572723652C00A4951D /* ChefSpecialCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F1EA562723652C00A4951D /* ChefSpecialCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		B1DDC38F2720757800E5AC8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1DDC3942720B77B00E5AC8E /* DishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishCategory.swift; path = Yummie/Views/CollectionViewCells/DishCategory.swift; sourceTree = SOURCE_ROOT; };
+		B1F1EA562723652C00A4951D /* ChefSpecialCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChefSpecialCollectionViewCell.swift; sourceTree = "<group>"; };
 		C377A9702AD80D9D38929F3C /* Pods_Yummie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yummie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE95154FEB7C49C6CE7E4D5B /* Pods-Yummie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.debug.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +166,7 @@
 			children = (
 				B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */,
 				B13CE8CC2723226000828D10 /* DishPortraitCollectionViewCell.swift */,
+				B1F1EA562723652C00A4951D /* ChefSpecialCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -282,6 +285,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1F1EA572723652C00A4951D /* ChefSpecialCollectionViewCell.swift in Sources */,
 				B16DAB46271CA7150076F1B3 /* AppDelegate.swift in Sources */,
 				B1CFA45627218BB900823212 /* CardView.swift in Sources */,
 				B13CE8D12723247000828D10 /* Dish.swift in Sources */,

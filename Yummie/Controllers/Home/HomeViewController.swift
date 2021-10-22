@@ -91,10 +91,15 @@ class HomeViewController: UIViewController {
     private var section3collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 5, left: 20, bottom: 5, right: 40)
+        layout.scrollDirection = .horizontal
         let colletionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        colletionView.register(ChefSpecialCollectionViewCell.self, forCellWithReuseIdentifier: ChefSpecialCollectionViewCell.identifier)
         colletionView.translatesAutoresizingMaskIntoConstraints = false
-        colletionView.backgroundColor = .yellow
+        colletionView.showsVerticalScrollIndicator = false
+        colletionView.showsHorizontalScrollIndicator = false
+        colletionView.translatesAutoresizingMaskIntoConstraints = false
         return colletionView
     }()
     
@@ -118,7 +123,7 @@ class HomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .tertiarySystemBackground
+        view.backgroundColor = .systemBackground
         setUpNavigationBar()
         addAllSubviews()
         setupCollectionViews()
@@ -194,7 +199,7 @@ private extension HomeViewController {
             make.top.equalTo(section3titleLabel.snp.bottom).offset(8)
             make.width.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(200)
+            make.height.equalTo(150)
             make.bottom.equalToSuperview()
         }
     }
@@ -224,6 +229,10 @@ private extension HomeViewController {
             .init(id: "id1", name: "Garri ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/202", calories: 34.545),
             .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
             .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/204", calories: 34.25546),
+            .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
+            .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/201", calories: 34.25546),
+            .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/205", calories: 34.525),
+            .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/206", calories: 34.25546)
         ]
     }
     
@@ -232,6 +241,8 @@ private extension HomeViewController {
         section1collectionView.dataSource = self
         section2collectionView.delegate = self
         section2collectionView.dataSource = self
+        section3collectionView.delegate = self
+        section3collectionView.dataSource = self
     }
 }
 
@@ -244,6 +255,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case section1collectionView:
             return categories.count
         case section2collectionView:
+            return dish.count
+        case section3collectionView:
             return dish.count
         default:
             return 0
@@ -260,6 +273,10 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishPortraitCollectionViewCell.identifier, for: indexPath) as! DishPortraitCollectionViewCell
             cell.configure(with: dish[indexPath.row])
             return cell
+        case section3collectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefSpecialCollectionViewCell.identifier, for: indexPath) as! ChefSpecialCollectionViewCell
+            cell.configure(with: dish[indexPath.row])
+            return cell
         default:
             return UICollectionViewCell()
         }
@@ -271,6 +288,8 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return CGSize(width: 150, height: 54)
         case section2collectionView:
             return CGSize(width: 180, height: 400)
+        case section3collectionView:
+            return CGSize(width: 180, height: 64)
         default:
             return .zero
         }
