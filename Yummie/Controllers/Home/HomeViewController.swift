@@ -76,11 +76,15 @@ class HomeViewController: UIViewController {
     private var section2collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 40)
         layout.scrollDirection = .horizontal
         let colletionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        colletionView.register(DishPortraitCollectionViewCell.self, forCellWithReuseIdentifier: DishPortraitCollectionViewCell.identifier)
         colletionView.translatesAutoresizingMaskIntoConstraints = false
-        colletionView.backgroundColor = .red
+        colletionView.showsVerticalScrollIndicator = false
+        colletionView.showsHorizontalScrollIndicator = false
+        colletionView.translatesAutoresizingMaskIntoConstraints = false
         return colletionView
     }()
     
@@ -97,7 +101,7 @@ class HomeViewController: UIViewController {
     private var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.spacing = 10.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -108,16 +112,16 @@ class HomeViewController: UIViewController {
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
-
+    
     private var categories: [DishCategory] = []
+    private var dish: [Dish] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .tertiarySystemBackground
         setUpNavigationBar()
         addAllSubviews()
-        section1collectionView.delegate = self
-        section1collectionView.dataSource = self
+        setupCollectionViews()
         loadData()
     }
 }
@@ -148,7 +152,9 @@ private extension HomeViewController {
         section1View.addSubview(section1titleLabel)
         section1View.addSubview(section1collectionView)
         section1titleLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.height.equalTo(24)
         }
         section1collectionView.snp.makeConstraints { make in
             make.top.equalTo(section1titleLabel.snp.bottom).offset(8)
@@ -163,12 +169,14 @@ private extension HomeViewController {
         section2View.addSubview(section2titleLabel)
         section2View.addSubview(section2collectionView)
         section2titleLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.height.equalTo(24)
         }
         section2collectionView.snp.makeConstraints { make in
             make.top.equalTo(section2titleLabel.snp.bottom).offset(8)
             make.width.equalToSuperview()
-            make.height.equalTo(300)
+           //make.height.equalTo(300)
             make.centerX.equalToSuperview()
             make.bottom.equalToSuperview()
         }
@@ -178,7 +186,9 @@ private extension HomeViewController {
         section3View.addSubview(section3titleLabel)
         section3View.addSubview(section3collectionView)
         section3titleLabel.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(16)
+            make.top.equalToSuperview()
+            make.leading.equalToSuperview().offset(16)
+            make.height.equalTo(24)
         }
         section3collectionView.snp.makeConstraints { make in
             make.top.equalTo(section3titleLabel.snp.bottom).offset(8)
@@ -210,8 +220,19 @@ private extension HomeViewController {
             .init(id: "id5", name: "Africa Dish5", image: "https://picsum.photos/100/204")
             
         ]
+        dish = [
+            .init(id: "id1", name: "Garri ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/202", calories: 34.545),
+            .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
+            .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/204", calories: 34.25546),
+        ]
     }
     
+    func setupCollectionViews() {
+        section1collectionView.delegate = self
+        section1collectionView.dataSource = self
+        section2collectionView.delegate = self
+        section2collectionView.dataSource = self
+    }
 }
 
 
@@ -219,16 +240,39 @@ private extension HomeViewController {
 extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return categories.count
+        switch collectionView {
+        case section1collectionView:
+            return categories.count
+        case section2collectionView:
+            return dish.count
+        default:
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
-        cell.configure(with: categories[indexPath.row])
-        return cell
+        switch collectionView {
+        case section1collectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
+            cell.configure(with: categories[indexPath.row])
+            return cell
+        case section2collectionView:
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: DishPortraitCollectionViewCell.identifier, for: indexPath) as! DishPortraitCollectionViewCell
+            cell.configure(with: dish[indexPath.row])
+            return cell
+        default:
+            return UICollectionViewCell()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 150, height: 54)
+        switch collectionView {
+        case section1collectionView:
+            return CGSize(width: 150, height: 54)
+        case section2collectionView:
+            return CGSize(width: 180, height: 400)
+        default:
+            return .zero
+        }
     }
 }

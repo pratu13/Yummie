@@ -10,6 +10,8 @@
 		45F187133C2805F5A2D607A6 /* Pods_Yummie.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C377A9702AD80D9D38929F3C /* Pods_Yummie.framework */; };
 		B1085138271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1085137271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift */; };
 		B108513A271DBE7A00FFD05B /* OnboardingSlideModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1085139271DBE7A00FFD05B /* OnboardingSlideModel.swift */; };
+		B13CE8CD2723226000828D10 /* DishPortraitCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13CE8CC2723226000828D10 /* DishPortraitCollectionViewCell.swift */; };
+		B13CE8D12723247000828D10 /* Dish.swift in Sources */ = {isa = PBXBuildFile; fileRef = B13CE8D02723247000828D10 /* Dish.swift */; };
 		B16DAB46271CA7150076F1B3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16DAB45271CA7150076F1B3 /* AppDelegate.swift */; };
 		B16DAB48271CA7150076F1B3 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16DAB47271CA7150076F1B3 /* SceneDelegate.swift */; };
 		B16DAB4F271CA7170076F1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16DAB4E271CA7170076F1B3 /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 		1E54DECC829873BE99510427 /* Pods-Yummie.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.release.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.release.xcconfig"; sourceTree = "<group>"; };
 		B1085137271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingCollectionViewCell.swift; path = Yummie/Controllers/OnBoarding/OnboardingCollectionViewCell.swift; sourceTree = SOURCE_ROOT; };
 		B1085139271DBE7A00FFD05B /* OnboardingSlideModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = OnboardingSlideModel.swift; path = Yummie/Controllers/OnBoarding/OnboardingSlideModel.swift; sourceTree = SOURCE_ROOT; };
+		B13CE8CC2723226000828D10 /* DishPortraitCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishPortraitCollectionViewCell.swift; sourceTree = "<group>"; };
+		B13CE8D02723247000828D10 /* Dish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Dish.swift; path = Yummie/Views/CollectionViewCells/Dish.swift; sourceTree = SOURCE_ROOT; };
 		B16DAB42271CA7150076F1B3 /* Yummie.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Yummie.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B16DAB45271CA7150076F1B3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B16DAB47271CA7150076F1B3 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +109,7 @@
 			children = (
 				B1085139271DBE7A00FFD05B /* OnboardingSlideModel.swift */,
 				B1DDC3942720B77B00E5AC8E /* DishCategory.swift */,
+				B13CE8D02723247000828D10 /* Dish.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -158,6 +163,7 @@
 			isa = PBXGroup;
 			children = (
 				B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */,
+				B13CE8CC2723226000828D10 /* DishPortraitCollectionViewCell.swift */,
 			);
 			path = CollectionViewCells;
 			sourceTree = "<group>";
@@ -278,11 +284,13 @@
 			files = (
 				B16DAB46271CA7150076F1B3 /* AppDelegate.swift in Sources */,
 				B1CFA45627218BB900823212 /* CardView.swift in Sources */,
+				B13CE8D12723247000828D10 /* Dish.swift in Sources */,
 				B108513A271DBE7A00FFD05B /* OnboardingSlideModel.swift in Sources */,
 				B16DAB48271CA7150076F1B3 /* SceneDelegate.swift in Sources */,
 				B1DDC3952720B77B00E5AC8E /* DishCategory.swift in Sources */,
 				B16DAB5E271CAF520076F1B3 /* OnboardingViewController.swift in Sources */,
 				B1085138271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift in Sources */,
+				B13CE8CD2723226000828D10 /* DishPortraitCollectionViewCell.swift in Sources */,
 				B1DDC3932720B57F00E5AC8E /* CategoryCollectionViewCell.swift in Sources */,
 				B1DDC3902720757800E5AC8E /* HomeViewController.swift in Sources */,
 			);
