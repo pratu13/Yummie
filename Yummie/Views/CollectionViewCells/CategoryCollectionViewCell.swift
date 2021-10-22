@@ -37,7 +37,7 @@ class CategoryCollectionViewCell: UICollectionViewCell {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        contentView.clipsToBounds = true
+        contentView.clipsToBounds = false
         addAllSubviews()
     }
     
@@ -49,9 +49,6 @@ class CategoryCollectionViewCell: UICollectionViewCell {
         label.text = dish.name
         imageView.kf.setImage(with: URL(string: dish.image))
     }
-    
-    
-    
 }
 
 //MARK: - Private Helpers
@@ -60,11 +57,11 @@ private extension CategoryCollectionViewCell {
     func addAllSubviews() {
         contentView.addSubview(containerView)
         containerView.snp.makeConstraints { make in
-            make.edges.equalToSuperview().inset(4.0)
+            make.edges.equalToSuperview()
         }
         containerView.addSubview(imageView)
         imageView.snp.makeConstraints { make in
-            make.leading.top.equalToSuperview().offset(4.0)
+            make.leading.top.equalToSuperview().offset(8.0)
             make.width.height.equalTo(40.0)
         }
         containerView.addSubview(label)

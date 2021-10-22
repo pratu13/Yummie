@@ -203,11 +203,11 @@ private extension HomeViewController {
     
     func loadData() {
         categories = [
-            .init(id: "id1", name: "Africa Dish", image: "https://picsum.photos/100/200"),
-            .init(id: "id2", name: "Africa Dish2", image: "https://picsum.photos/100/200"),
-            .init(id: "id3", name: "Africa Dish3", image: "https://picsum.photos/100/200"),
-            .init(id: "id4", name: "Africa Dish4", image: "https://picsum.photos/100/200"),
-            .init(id: "id5", name: "Africa Dish5", image: "https://picsum.photos/100/200")
+            .init(id: "id1", name: "Africa Dish1", image: "https://picsum.photos/100/200"),
+            .init(id: "id2", name: "Africa Dish2", image: "https://picsum.photos/100/201"),
+            .init(id: "id3", name: "Africa Dish3", image: "https://picsum.photos/100/202"),
+            .init(id: "id4", name: "Africa Dish4", image: "https://picsum.photos/100/203"),
+            .init(id: "id5", name: "Africa Dish5", image: "https://picsum.photos/100/204")
             
         ]
     }

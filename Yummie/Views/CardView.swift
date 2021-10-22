@@ -16,18 +16,19 @@ class CardView: UIView {
     }
     
     required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+        super.init(coder: coder)
+        initialSetup()
     }
     
     private func initialSetup() {
-        layer.masksToBounds = false
+        layer.borderColor = UIColor.black.withAlphaComponent(0.5).cgColor
+        layer.borderWidth = 1.0
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = .zero
+        layer.shadowOffset = CGSize(width: 0, height: 10)
         layer.cornerRadius = 10
         layer.shadowOpacity = 0.1
+        layer.masksToBounds = false
         layer.shadowPath = UIBezierPath(rect: self.bounds).cgPath
-        layer.shouldRasterize = true
-        layer.rasterizationScale = UIScreen.main.scale 
     }
     
 }
