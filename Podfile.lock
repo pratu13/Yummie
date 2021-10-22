@@ -1,0 +1,36 @@
+PODS:
+  - Kingfisher (7.1.1)
+  - KingfisherWebP (1.4.0):
+    - Kingfisher (~> 7.0)
+    - libwebp (>= 1.1.0)
+  - libwebp (1.2.1):
+    - libwebp/demux (= 1.2.1)
+    - libwebp/mux (= 1.2.1)
+    - libwebp/webp (= 1.2.1)
+  - libwebp/demux (1.2.1):
+    - libwebp/webp
+  - libwebp/mux (1.2.1):
+    - libwebp/demux
+  - libwebp/webp (1.2.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - KingfisherWebP
+  - SnapKit (~> 5.0.0)
+
+SPEC REPOS:
+  trunk:
+    - Kingfisher
+    - KingfisherWebP
+    - libwebp
+    - SnapKit
+
+SPEC CHECKSUMS:
+  Kingfisher: f738f9c4a3415823b8e2985d10aa2d6a9f37bc4d
+  KingfisherWebP: f4b76064c50a36c4cadd37548496ecebfdcb39e8
+  libwebp: 98a37e597e40bfdb4c911fc98f2c53d0b12d05fc
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: bfb6f476f7cfc5d0e912ddcdd4d68f889d2da338
+
+COCOAPODS: 1.11.2

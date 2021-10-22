@@ -60,12 +60,17 @@ class HomeViewController: UIViewController {
     private var section1collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
         layout.minimumInteritemSpacing = 0
-        layout.minimumLineSpacing = 0
+        layout.minimumLineSpacing = 10
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 40)
         layout.scrollDirection = .horizontal
         let colletionView = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        colletionView.register(CategoryCollectionViewCell.self, forCellWithReuseIdentifier: CategoryCollectionViewCell.identifier)
         colletionView.translatesAutoresizingMaskIntoConstraints = false
-        colletionView.backgroundColor = .blue
+        colletionView.showsVerticalScrollIndicator = false
+        colletionView.showsHorizontalScrollIndicator = false
+        colletionView.clipsToBounds = false
         return colletionView
+        
     }()
     
     private var section2collectionView: UICollectionView = {
@@ -104,11 +109,16 @@ class HomeViewController: UIViewController {
         return scrollView
     }()
 
+    private var categories: [DishCategory] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .systemBackground
         setUpNavigationBar()
         addAllSubviews()
+        section1collectionView.delegate = self
+        section1collectionView.dataSource = self
+        loadData()
     }
 }
 
@@ -142,6 +152,7 @@ private extension HomeViewController {
         }
         section1collectionView.snp.makeConstraints { make in
             make.top.equalTo(section1titleLabel.snp.bottom).offset(8)
+            make.centerX.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(122)
             make.bottom.equalToSuperview()
@@ -158,6 +169,7 @@ private extension HomeViewController {
             make.top.equalTo(section2titleLabel.snp.bottom).offset(8)
             make.width.equalToSuperview()
             make.height.equalTo(300)
+            make.centerX.equalToSuperview()
             make.bottom.equalToSuperview()
         }
     }
@@ -171,6 +183,7 @@ private extension HomeViewController {
         section3collectionView.snp.makeConstraints { make in
             make.top.equalTo(section3titleLabel.snp.bottom).offset(8)
             make.width.equalToSuperview()
+            make.centerX.equalToSuperview()
             make.height.equalTo(200)
             make.bottom.equalToSuperview()
         }
@@ -188,6 +201,34 @@ private extension HomeViewController {
         
     }
     
+    func loadData() {
+        categories = [
+            .init(id: "id1", name: "Africa Dish", image: "https://picsum.photos/100/200"),
+            .init(id: "id2", name: "Africa Dish2", image: "https://picsum.photos/100/200"),
+            .init(id: "id3", name: "Africa Dish3", image: "https://picsum.photos/100/200"),
+            .init(id: "id4", name: "Africa Dish4", image: "https://picsum.photos/100/200"),
+            .init(id: "id5", name: "Africa Dish5", image: "https://picsum.photos/100/200")
+            
+        ]
+    }
+    
 }
 
 
+//MARK: - UICollection Delegate
+extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return categories.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CategoryCollectionViewCell.identifier, for: indexPath) as! CategoryCollectionViewCell
+        cell.configure(with: categories[indexPath.row])
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 150, height: 54)
+    }
+}

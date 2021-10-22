@@ -15,7 +15,10 @@
 		B16DAB4F271CA7170076F1B3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B16DAB4E271CA7170076F1B3 /* Assets.xcassets */; };
 		B16DAB52271CA7170076F1B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B16DAB50271CA7170076F1B3 /* LaunchScreen.storyboard */; };
 		B16DAB5E271CAF520076F1B3 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16DAB5D271CAF520076F1B3 /* OnboardingViewController.swift */; };
+		B1CFA45627218BB900823212 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFA45527218BB900823212 /* CardView.swift */; };
 		B1DDC3902720757800E5AC8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC38F2720757800E5AC8E /* HomeViewController.swift */; };
+		B1DDC3932720B57F00E5AC8E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */; };
+		B1DDC3952720B77B00E5AC8E /* DishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC3942720B77B00E5AC8E /* DishCategory.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,7 +32,10 @@
 		B16DAB51271CA7170076F1B3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B16DAB53271CA7170076F1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16DAB5D271CAF520076F1B3 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
+		B1CFA45527218BB900823212 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		B1DDC38F2720757800E5AC8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		B1DDC3942720B77B00E5AC8E /* DishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishCategory.swift; path = Yummie/Views/CollectionViewCells/DishCategory.swift; sourceTree = SOURCE_ROOT; };
 		C377A9702AD80D9D38929F3C /* Pods_Yummie.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Yummie.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE95154FEB7C49C6CE7E4D5B /* Pods-Yummie.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Yummie.debug.xcconfig"; path = "Target Support Files/Pods-Yummie/Pods-Yummie.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -98,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				B1085139271DBE7A00FFD05B /* OnboardingSlideModel.swift */,
+				B1DDC3942720B77B00E5AC8E /* DishCategory.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -105,7 +112,9 @@
 		B16DAB5A271CAF0A0076F1B3 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				B1DDC3912720B4E800E5AC8E /* CollectionViewCells */,
 				B1085137271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift */,
+				B1CFA45527218BB900823212 /* CardView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -143,6 +152,14 @@
 				B1DDC38F2720757800E5AC8E /* HomeViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B1DDC3912720B4E800E5AC8E /* CollectionViewCells */ = {
+			isa = PBXGroup;
+			children = (
+				B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */,
+			);
+			path = CollectionViewCells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,10 +277,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				B16DAB46271CA7150076F1B3 /* AppDelegate.swift in Sources */,
+				B1CFA45627218BB900823212 /* CardView.swift in Sources */,
 				B108513A271DBE7A00FFD05B /* OnboardingSlideModel.swift in Sources */,
 				B16DAB48271CA7150076F1B3 /* SceneDelegate.swift in Sources */,
+				B1DDC3952720B77B00E5AC8E /* DishCategory.swift in Sources */,
 				B16DAB5E271CAF520076F1B3 /* OnboardingViewController.swift in Sources */,
 				B1085138271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift in Sources */,
+				B1DDC3932720B57F00E5AC8E /* CategoryCollectionViewCell.swift in Sources */,
 				B1DDC3902720757800E5AC8E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
