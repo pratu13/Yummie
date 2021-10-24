@@ -18,6 +18,7 @@
 		B16DAB52271CA7170076F1B3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B16DAB50271CA7170076F1B3 /* LaunchScreen.storyboard */; };
 		B16DAB5E271CAF520076F1B3 /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16DAB5D271CAF520076F1B3 /* OnboardingViewController.swift */; };
 		B1CFA45627218BB900823212 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1CFA45527218BB900823212 /* CardView.swift */; };
+		B1DAC67C2725FB0A00AEF405 /* DishDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DAC67B2725FB0A00AEF405 /* DishDetailViewController.swift */; };
 		B1DDC3902720757800E5AC8E /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC38F2720757800E5AC8E /* HomeViewController.swift */; };
 		B1DDC3932720B57F00E5AC8E /* CategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */; };
 		B1DDC3952720B77B00E5AC8E /* DishCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1DDC3942720B77B00E5AC8E /* DishCategory.swift */; };
@@ -38,6 +39,7 @@
 		B16DAB53271CA7170076F1B3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B16DAB5D271CAF520076F1B3 /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		B1CFA45527218BB900823212 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		B1DAC67B2725FB0A00AEF405 /* DishDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DishDetailViewController.swift; sourceTree = "<group>"; };
 		B1DDC38F2720757800E5AC8E /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B1DDC3922720B57F00E5AC8E /* CategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		B1DDC3942720B77B00E5AC8E /* DishCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DishCategory.swift; path = Yummie/Views/CollectionViewCells/DishCategory.swift; sourceTree = SOURCE_ROOT; };
@@ -129,6 +131,7 @@
 		B16DAB5B271CAF160076F1B3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				B1DAC67D2725FF9B00AEF405 /* DishDetail */,
 				B1DDC38E2720756600E5AC8E /* Home */,
 				B16DAB5C271CAF290076F1B3 /* OnBoarding */,
 			);
@@ -151,6 +154,14 @@
 				B16DAB50271CA7170076F1B3 /* LaunchScreen.storyboard */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		B1DAC67D2725FF9B00AEF405 /* DishDetail */ = {
+			isa = PBXGroup;
+			children = (
+				B1DAC67B2725FB0A00AEF405 /* DishDetailViewController.swift */,
+			);
+			path = DishDetail;
 			sourceTree = "<group>";
 		};
 		B1DDC38E2720756600E5AC8E /* Home */ = {
@@ -296,6 +307,7 @@
 				B1085138271DBE5D00FFD05B /* OnboardingCollectionViewCell.swift in Sources */,
 				B13CE8CD2723226000828D10 /* DishPortraitCollectionViewCell.swift in Sources */,
 				B1DDC3932720B57F00E5AC8E /* CategoryCollectionViewCell.swift in Sources */,
+				B1DAC67C2725FB0A00AEF405 /* DishDetailViewController.swift in Sources */,
 				B1DDC3902720757800E5AC8E /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

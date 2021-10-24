@@ -106,7 +106,6 @@ class HomeViewController: UIViewController {
     private var containerStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 10.0
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
     }()
@@ -120,6 +119,7 @@ class HomeViewController: UIViewController {
     
     private var categories: [DishCategory] = []
     private var dish: [Dish] = []
+    private var specials: [Dish] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -166,7 +166,7 @@ private extension HomeViewController {
             make.centerX.equalToSuperview()
             make.width.equalToSuperview()
             make.height.equalTo(122)
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(10)
         }
     }
     
@@ -183,7 +183,7 @@ private extension HomeViewController {
             make.width.equalToSuperview()
            //make.height.equalTo(300)
             make.centerX.equalToSuperview()
-            make.bottom.equalToSuperview()
+            make.bottom.equalToSuperview().inset(10)
         }
     }
     
@@ -199,8 +199,8 @@ private extension HomeViewController {
             make.top.equalTo(section3titleLabel.snp.bottom).offset(8)
             make.width.equalToSuperview()
             make.centerX.equalToSuperview()
-            make.height.equalTo(150)
-            make.bottom.equalToSuperview()
+            make.height.equalTo(120)
+            make.bottom.equalToSuperview().inset(10)
         }
     }
     
@@ -227,12 +227,14 @@ private extension HomeViewController {
         ]
         dish = [
             .init(id: "id1", name: "Garri ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/202", calories: 34.545),
-            .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
-            .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/204", calories: 34.25546),
-            .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
-            .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/201", calories: 34.25546),
-            .init(id: "id1", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/205", calories: 34.525),
-            .init(id: "id1", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/206", calories: 34.25546)
+            .init(id: "id2", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
+            .init(id: "id3", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/204", calories: 34.25546),
+            .init(id: "id4", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
+        ]
+        
+        specials = [
+            .init(id: "id1", name: "Fried Plantain", description: "This is my favourtie dish", image: "https://picsum.photos/100/205", calories: 1000.53),
+            .init(id: "id2", name: "Beans and Garry", description: "This is my favourtie dish", image: "https://picsum.photos/100/210", calories: 84.32)
         ]
     }
     
@@ -257,7 +259,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case section2collectionView:
             return dish.count
         case section3collectionView:
-            return dish.count
+            return specials.count
         default:
             return 0
         }
@@ -275,7 +277,7 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return cell
         case section3collectionView:
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: ChefSpecialCollectionViewCell.identifier, for: indexPath) as! ChefSpecialCollectionViewCell
-            cell.configure(with: dish[indexPath.row])
+            cell.configure(with: specials[indexPath.row])
             return cell
         default:
             return UICollectionViewCell()
@@ -287,9 +289,9 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         case section1collectionView:
             return CGSize(width: 150, height: 54)
         case section2collectionView:
-            return CGSize(width: 180, height: 400)
+            return CGSize(width: 180, height: 450)
         case section3collectionView:
-            return CGSize(width: 180, height: 64)
+            return CGSize(width: 330, height: 64)
         default:
             return .zero
         }

@@ -26,33 +26,35 @@ class ChefSpecialCollectionViewCell: UICollectionViewCell {
     private var titleLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 1
-        label.font = .systemFont(ofSize: 17, weight: .bold)
+        label.font = .systemFont(ofSize: 19, weight: .semibold)
         return label
     }()
     
     private var captionLabel: UILabel = {
         let label = UILabel()
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 12)
+        label.textColor = .systemRed
         return label
     }()
     
     private var descriptionLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
-        label.font = .systemFont(ofSize: 12)
+        label.font = .systemFont(ofSize: 14)
+        label.textColor = .systemGray
         return label
     }()
     
     private var hStackView: UIStackView = {
         let stackView =  UIStackView()
-        stackView.spacing = 10
+        stackView.spacing = 16
         return stackView
     }()
     
     private var vStackView: UIStackView = {
         let stackView =  UIStackView()
         stackView.axis = .vertical
-        stackView.distribution = .fillProportionally
+        stackView.distribution = .fillEqually
         return stackView
     }()
     
@@ -96,8 +98,8 @@ private extension ChefSpecialCollectionViewCell {
         hStackView.addArrangedSubview(imageView)
         hStackView.addArrangedSubview(vStackView)
         vStackView.addArrangedSubview(titleLabel)
-        vStackView.addArrangedSubview(captionLabel)
         vStackView.addArrangedSubview(descriptionLabel)
+        vStackView.addArrangedSubview(captionLabel)
     }
     
 }
