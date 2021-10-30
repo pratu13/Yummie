@@ -120,9 +120,11 @@ class HomeViewController: UIViewController {
     private var categories: [DishCategory] = []
     private var dish: [Dish] = []
     private var specials: [Dish] = []
+    private var orders: [Order] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        NetworkingService.shared.myFirstRequest()
         view.backgroundColor = .systemBackground
         setUpNavigationBar()
         addAllSubviews()
@@ -213,7 +215,10 @@ private extension HomeViewController {
     }
     
     @objc func didTapCartButton() {
-        
+        let vc = OrderListViewController()
+        vc.orders = orders
+        vc.title = "Your Orders"
+        navigationController?.pushViewController(vc, animated: true)
     }
     
     func loadData() {
@@ -227,7 +232,7 @@ private extension HomeViewController {
         ]
         dish = [
             .init(id: "id1", name: "Garri ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/202", calories: 34.545),
-            .init(id: "id2", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
+            .init(id: "id2", name: "Indomi ", description: "This is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tastedThis is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
             .init(id: "id3", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/204", calories: 34.25546),
             .init(id: "id4", name: "Indomi ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/203", calories: 34.525),
         ]
@@ -235,6 +240,12 @@ private extension HomeViewController {
         specials = [
             .init(id: "id1", name: "Fried Plantain", description: "This is my favourtie dish", image: "https://picsum.photos/100/205", calories: 1000.53),
             .init(id: "id2", name: "Beans and Garry", description: "This is my favourtie dish", image: "https://picsum.photos/100/210", calories: 84.32)
+        ]
+        
+        orders = [
+            .init(id: "id1", dish: .init(id: "id3", name: "Fired Rice ", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/204", calories: 34.25546), name: "Pratyush"),
+            .init(id: "id2", dish: .init(id: "id3", name: "Yam Fried", description: "This is the best I have ever tasted", image: "https://picsum.photos/100/211", calories: 34.25546), name: "Pratyush"),
+            
         ]
     }
     
@@ -294,6 +305,24 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
             return CGSize(width: 330, height: 64)
         default:
             return .zero
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch collectionView {
+        case section1collectionView:
+            let vc = DishListViewController()
+            vc.title = categories[indexPath.row].name
+            vc.dishes = dish
+            navigationController?.pushViewController(vc, animated: true)
+        case section2collectionView:
+            let vc = DishDetailViewController()
+            vc.dish = dish[indexPath.row]
+            navigationController?.pushViewController(vc, animated: true)
+        case section3collectionView:
+            break
+        default:
+            break
         }
     }
 }
